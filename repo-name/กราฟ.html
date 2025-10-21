@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard ตัวชี้วัด</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f9f5f0;
+      padding: 40px;
+    }
+
+    h3, h2 {
+      text-align: center;
+      color: #e67e22;
+      margin-bottom: 30px;
+    }
+
+    .card-box {
+      padding: 20px;
+      color: white;
+      border-radius: 15px;
+      margin-bottom: 20px;
+      position: relative;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      min-height: 120px;
+    }
+
+    .card-title {
+      font-size: 32px;
+      font-weight: bold;
+    }
+
+    .card-text {
+      font-size: 16px;
+    }
+
+    .icon {
+      font-size: 40px;
+      position: absolute;
+      right: 20px;
+      bottom: 20px;
+      opacity: 0.3;
+    }
+
+    .bg-blue { background-color: #3498db; }
+    .bg-green { background-color: #2ecc71; }
+    .bg-red { background-color: #e74c3c; }
+    .bg-cyan { background-color: #1abc9c; }
+
+    .chart-container {
+      max-width: 1000px;
+      margin: 40px auto 0;
+      background: #fff;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    }
+
+    canvas {
+      height: 400px !important;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Dashboard Cards -->
+  <h3>กราฟเปรียบเทียบผลงานรายตัวชี้วัดกลุ่มงานการพยาบาล</h3>
+  <div class="row mt-4">
+    <div class="col-sm-6 col-md-3">
+      <div class="card-box bg-blue">
+        <div>
+          <div class="card-title">41</div>
+          <div class="card-text">จำนวนตัวชี้วัดทั้งหมด</div>
+        </div>
+        <i class="bi bi-cart4 icon"></i>
+      </div>
+    </div>
+    <div class="col-sm-6 col-md-3">
+      <div class="card-box bg-green">
+        <div>
+          <div class="card-title">28</div>
+          <div class="card-text">ตัวชี้วัดที่ผ่านแล้ว</div>
+        </div>
+        <i class="bi bi-bar-chart-fill icon"></i>
+      </div>
+    </div>
+    <div class="col-sm-6 col-md-3">
+      <div class="card-box bg-red">
+        <div>
+          <div class="card-title">13</div>
+          <div class="card-text">ตัวชี้วัดที่ยังไม่ผ่าน</div>
+        </div>
+        <i class="bi bi-pie-chart-fill icon"></i>
+      </div>
+    </div>
+    <div class="col-sm-6 col-md-3">
+      <div class="card-box bg-cyan">
+        <div>
+          <div class="card-title">68.29%</div>
+          <div class="card-text">ร้อยละ</div>
+        </div>
+        <i class="bi bi-person-plus-fill icon"></i>
+      </div>
+    </div>
+  </div>
+
+  <!-- Dropdown ตัวชี้วัด -->
+  <div class="container mt-4">
+    <label for="kpiSelect" class="form-label">เลือกตัวชี้วัด</label>
+    <select id="kpiSelect" class="form-select">
+      <option value="all" selected>เลือกตัวชี้วัด</option>
+      <option value="0">ตัวชี้วัด 1 อัตราส่วนการตายมารดาไทย ไม่เกิน 16 ต่อการเกิดมีชีพแสนคน</option>
+      <option value="1">ตัวชี้วัด 2 ร้อยละของเด็กอายุ 0-5 ปี มีพัฒนาการสมวัย</option>
+      <option value="2">ตัวชี้วัด 3 อัตราความรอบรู้ด้านสุขภาพของประชาชนไทยอายุ 15 ปีขึ้นไป</option>
+    </select>
+  </div>
+
+
+
+
+  <!-- กราฟและตาราง -->
+  <div class="chart-container">
+    <h2>กราฟเปรียบเทียบ เป้าหมาย / A / B</h2>
+    <canvas id="myChart"></canvas>
+
+    <!-- ตาราง -->
+    <table class="table mt-4 table-bordered" id="kpiDetailTable" style="display: none;">
+      <thead>
+        <tr>
+          <th>ตัวชี้วัด</th>
+          <th>เกณฑ์</th>
+          <th>แหล่งข้อมูล</th>
+          <th>เป้าหมาย</th>
+          <th>ผลงาน A</th>
+          <th>ผลงาน B</th>
+          <th>ผู้รับผิดชอบ</th>
+        </tr>
+      </thead>
+      <tbody id="kpi-detail-body"></tbody>
+    </table>
+  </div>
+
+  <!-- Script -->
+  <script>
+    const kpiData = [
+  {
+    title: "อัตราส่วนการตายมารดาไทย ไม่เกิน 16 ต่อการเกิดมีชีพแสนคน",
+    criteria: "<= 16",
+    source: "man",
+    goal: 16,
+    resultA: 10,
+    resultB: 13,
+    owner: "ฝ่ายการ"
+  },
+  {
+    title: "ร้อยละของเด็กอายุ 0-5 ปี มีพัฒนาการสมวัย",
+    criteria: ">= 87",
+    source: "HDC",
+    goal: 87,
+    resultA: 92,
+    resultB: 88,
+    owner: "ปฐมภูมิ"
+  },
+  {
+    title: "อัตราความรอบรู้ด้านสุขภาพของประชาชนไทยอายุ 15 ปีขึ้นไป",
+    criteria: ">= 82",
+    source: "man",
+    goal: 82,
+    resultA: 84,
+    resultB: 79,
+    owner: "ปฐมภูมิ"
+  }
+];
+
+
+    const ctx = document.getElementById('myChart').getContext('2d');
+
+    let myChart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['เป้าหมาย', 'ผลงาน A', 'ผลงาน B'],
+        datasets: [{
+          label: 'ข้อมูล',
+          data: [0, 0, 0],
+          backgroundColor: ['#3498db', '#2ecc71', '#f39c12']
+        }]
+      },
+      options: {
+        responsive: true,
+        scales: {
+          y: {
+            beginAtZero: true,
+            suggestedMax: 120
+          }
+        }
+      }
+    });
+
+    function updateKpiDetail(index) {
+      const body = document.getElementById('kpi-detail-body');
+      const table = document.getElementById('kpiDetailTable');
+      body.innerHTML = "";
+
+      if (index === "all") {
+        table.style.display = "none";
+        return;
+      }
+
+      const kpi = kpiData[index];
+      const row = `
+        <tr>
+          <td>${kpi.title}</td>
+          <td>${kpi.criteria}</td>
+          <td>${kpi.source}</td>
+          <td>${kpi.goal}</td>
+          <td>${kpi.resultA}</td>
+          <td>${kpi.resultB}</td>
+          <td>${kpi.owner}</td>
+        </tr>
+      `;
+      body.innerHTML = row;
+      table.style.display = "table";
+    }
+
+    document.getElementById('kpiSelect').addEventListener('change', function () {
+      const selected = this.value;
+
+      if (selected === 'all') {
+        myChart.data.datasets[0].data = [0, 0, 0];
+        myChart.data.datasets[0].label = 'ข้อมูล';
+        myChart.update();
+        updateKpiDetail("all");
+      } else {
+        const index = parseInt(selected);
+        const kpi = kpiData[index];
+
+        myChart.data.datasets[0].data = [kpi.goal, kpi.resultA, kpi.resultB];
+        myChart.data.datasets[0].label = kpi.title;
+        myChart.update();
+        updateKpiDetail(index);
+      }
+    });
+  </script>
+
+</body>
+</html>
