@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <title> กราฟเปรียบเทียบตัวชี้วัด </title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 30px;
+            background-color: #fef8f3;
+        }
+        canvas {
+            max-width: 600px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>กราฟเปรียบเทียบตัวชี้วัด</h2>
+    <canvas id= "myChart" ></canvas>
+
+    <script>
+        const ctx = document.getElementById('myChart').getContext('2d');
+
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['กลุ่ม A', 'กลุ่ม B', 'กลุ่ม C' ],
+                datasets: [{
+                    label: 'คะแนนตัวชี้วัด',
+                    data: [75, 88, 62 ],
+                    backgroundColor: 'rgba(255, 159, 64, 0.8)', // สีส้มโทนอ่อน
+                    borderColor: 'rgba(255, 115, 0, 1)',         // สีส้มเข้ม
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                             text: 'คะแนน (หน่วย)'
+                        }
+                    },
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'กลุ่มเป้าหมาย'
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: true,
+                        position: 'top'
+                    },
+                    title: {
+                        display: true,
+                        text: 'การเปรียบเทียบตัวชี้วัด'
+                    }
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>

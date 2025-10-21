@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dashboard ตัวชี้วัด KPI</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #fffaf5;
+      font-family: 'Prompt', sans-serif;
+      padding-bottom: 50px;
+    }
+    .navbar {
+      background-color: #f57c00;
+    }
+    .nav-link, .navbar-brand {
+      color: white !important;
+    }
+
+    /* Dashboard Card Styles */
+    .card-box {
+      color: white;
+      border-radius: 10px;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .card-title {
+      font-size: 28px;
+      font-weight: bold;
+    }
+    .card-text {
+      font-size: 16px;
+    }
+    .icon {
+      font-size: 40px;
+      opacity: 0.3;
+    }
+    .bg-blue { background-color: #1976d2; }
+    .bg-green { background-color: #2e7d32; }
+    .bg-red { background-color: #d32f2f; }
+    .bg-cyan { background-color: #00bcd4; }
+
+    /* Table Styles */
+    h2 {
+      color: #f57c00;
+      margin-top: 30px;
+    }
+    .table thead {
+      background-color: #ffe0b2;
+    }
+    .table th, .table td {
+      vertical-align: middle;
+      text-align: center;
+    }
+    tbody tr:nth-child(odd) {
+      background-color: #fff3e0;
+    }
+    tbody tr:nth-child(even) {
+      background-color: #ffffff;
+    }
+
+    .btn-orange {
+      background-color: #f57c00;
+      color: white;
+      border: none;
+    }
+    .btn-orange:hover {
+      background-color: #e65100;
+    }
+  </style>
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-lg">
+  <div class="container">
+    <a class="navbar-brand" href="#">KPI โรงพยาบาลพ่อท่านคล้ายวาจาสิทธิ</a>
+    <div class="collapse navbar-collapse">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+  <a class="nav-link active" href="file:///D:/KPI%202525/index.html#">หน้าหลัก</a>
+</li>
+
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container mt-5">
+
+  <!-- Dashboard Cards -->
+  <h3>Dashboard ตัวชี้วัดประเด็นตรวจราชการ</h3>
+  <div class="row mt-4">
+    <div class="col-sm-6 col-md-3">
+      <div class="card-box bg-blue">
+        <div>
+          <div class="card-title">41</div>
+          <div class="card-text">จำนวนตัวชี้วัดทั้งหมด</div>
+        </div>
+        <i class="bi bi-cart4 icon"></i>
+      </div>
+    </div>
+    <div class="col-sm-6 col-md-3">
+      <div class="card-box bg-green">
+        <div>
+          <div class="card-title">28</div>
+          <div class="card-text">ตัวชี้วัดที่ผ่านแล้ว</div>
+        </div>
+        <i class="bi bi-bar-chart-fill icon"></i>
+      </div>
+    </div>
+    <div class="col-sm-6 col-md-3">
+      <div class="card-box bg-red">
+        <div>
+          <div class="card-title">13</div>
+          <div class="card-text">ตัวชี้วัดที่ยังไม่ผ่าน</div>
+        </div>
+        <i class="bi bi-pie-chart-fill icon"></i>
+      </div>
+    </div>
+    <div class="col-sm-6 col-md-3">
+      <div class="card-box bg-cyan">
+        <div>
+          <div class="card-title">68.29%</div>
+          <div class="card-text">ร้อยละ</div>
+        </div>
+        <i class="bi bi-person-plus-fill icon"></i>
+      </div>
+    </div>
+  </div>
+
+  <!-- KPI Table -->
+  <h2 class="text-center">ตารางตัวชี้วัด KPI ปีงบประมาณ 2026</h2>
+  <div class="table-responsive mt-4">
+    <table class="table table-bordered align-middle">
+      <thead>
+        <tr>
+          <th rowspan="2">ลำดับ</th>
+          <th rowspan="2">ตัวชี้วัด</th>
+          <th rowspan="2">เกณฑ์</th>
+          <th rowspan="2">แหล่งข้อมูล</th>
+          <th colspan="3">การดำเนินงาน</th>
+          <th rowspan="2">ผู้รับผิดชอบ</th>
+        </tr>
+        <tr>
+          <th>เป้าหมาย</th>
+          <th>ผลงาน</th>
+          <th>ร้อยละ</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td style="text-align: left;">อัตราส่วนการตายมารดาไทย ไม่เกิน 16 ต่อการเกิดมีชีพแสนคน</td>
+          <td> < = 16</td>
+          <td>man</td>
+          <td>0</td>
+          <td>0</td>
+          <td style="background-color: green; color: white;">0</td>
+
+          <td><button class="btn btn-outline-primary btn-sm">ฝ่ายการ</button></td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td style="text-align: left;">ร้อยละของเด็กอายุ 0-5 ปี มีพัฒนาการสมวัย</td>
+          <td> >= 87</td>
+          <td>HDC</td>
+          <td>45</td>
+          <td>43</td>
+          <td style="background-color: green; color: white;">95.56</td>
+          <td><button class="btn btn-outline-primary btn-sm"> ปฐมภูมิ </button></td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td style="text-align: left;">อัตราความรอบรู้ด้านสุขภาพของประชาชนไทยอายุ 15 ปีขึ้นไป</td>
+          <td> >= 82</td>
+          <td>man</td>
+          <td>342</td>
+          <td>286</td>
+          <td style="background-color: green; color: white;">83.63</td>
+          <td><button class="btn btn-outline-primary btn-sm"> ปฐมภูมิ </button></td>
+        </tr>
+
+        <tr>
+          <td>4</td>
+          <td style="text-align: left;">ระดับความรอบรู้สุขภาพของประชาชน เรื่องโรคอุบัติใหม่และโรคอุบัติซ้ำเพิ่มขึ้นไม่น้อยกว่าร้อยละ 5</td>
+          <td>53</td>
+          <td>man</td>
+          <td>0</td>
+          <td>0</td>
+          <td style="background-color: rgb(209, 10, 20); color: white;">0</td>
+          <td><button class="btn btn-outline-primary btn-sm">ปฐมภูมิ</button></td>
+        </tr>
+
+        <tr>
+          <td>5</td>
+          <td style="text-align: left;">ร้อยละของโรงพยาบาลที่พัฒนาอนามัยสิ่งแวดล้อมได้ตามเกณฑ์ GREEN&CLEAN Hospital Challenge (ระดับมาตรฐานขึ้นไป)</td>
+          <td>>=1</td>
+          <td>man</td>
+          <td>1</td>
+          <td>1</td>
+          <td style="background-color: green; color: white;">  100    </td>
+          <td><button class="btn btn-outline-primary btn-sm">ปฐมภูมิ</button></td>
+        </tr>
+
+        <tr>
+          <td>  6   </td>
+          <td style="text-align: left;">   จำนวนการจัดตั้งหน่วยบริการปฐมภูมิและเครือข่ายหน่วยบริการปฐมภูมิ ตามพระราชบัญญัติระบบสุขภาพปฐมภูมิ พ.ศ.2562 (เป้าหมายจังหวัดนครศรีฯ 10 ปี ปี2563-2573 จำนวน 140 ทีม)   </td>
+          <td>   >=3  </td>
+          <td>   man   </td>
+          <td>  3   </td>
+          <td>  3   </td>
+          <td style="background-color:    green;    color: white;">  100    </td>
+          <td><button class="btn btn-outline-primary btn-sm">   ปฐมภูมิ   </button></td>
+        </tr>
+
+
+          <tr>
+          <td>  7   </td>
+          <td style="text-align: left;">   อัตราตายของผู้ป่วยโรคหลอดเลือดสมอง (Stroke :I60-I69)   </td>
+          <td>   <7  </td>
+          <td>   HDC   </td>
+          <td>  3   </td>
+          <td>  0   </td>
+          <td style="background-color:    green;    color: white;">  0    </td>
+          <td><button class="btn btn-outline-primary btn-sm">   ฝ่ายการ   </button></td>
+        </tr>
+      
+
+
+          <tr>
+          <td>  8  </td>
+          <td style="text-align: left;">   อัตราสำเร็จของการรักษาวัณโรคปอดรายใหม่ (crude suicide rate)   </td>
+          <td>  >=88  </td>
+          <td>   NTIP   </td>
+          <td>  1   </td>
+          <td>  1   </td>
+          <td style="background-color:    green;    color: white;">  100    </td>
+          <td><button class="btn btn-outline-primary btn-sm">   ปฐมภูมิ   </button></td>
+        </tr>
+
+        <tr>
+          <td>  9  </td>
+          <td style="text-align: left;">   อัตราความครอบคลุมของการขึ้นทะเบียนรักษาผู้ป่วยวัณโรครายใหม่และกลับเป็นซ้ำ  </td>
+          <td>  >=85 </td>
+          <td>   HDC   </td>
+          <td>  44   </td>
+          <td>  8   </td>
+          <td style="background-color:    rgb(209, 10, 20)  ; color: white;">  18.11  </td>
+          <td><button class="btn btn-outline-primary btn-sm">   ปฐมภูมิ   </button></td>
+        </tr>
+
+         <tr>
+          <td>  10  </td>
+          <td style="text-align: left;">   อัตราตายทารกแรกเกิด อายุต่ำกว่าหรือเท่ากับ 28 วัน <3.6 ต่อ 1000 ทารกเกิดมีชีพ  </td>
+          <td>    <3.60  </td>
+          <td>   HDC   </td>
+          <td>  0   </td>
+          <td>  0   </td>
+          <td style="background-color:    green ; color: white;">  0  </td>
+          <td><button class="btn btn-outline-primary btn-sm">   ฝ่ายการ   </button></td>
+        </tr>
+
+        <tr>
+          <td>  11 </td>
+          <td style="text-align: left;">   อัตราการฆ่าตัวตายสำเร็จ ≤7.8 ต่อประชากรแสนคน  </td>
+          <td>    <=7.8  </td>
+          <td>   man   </td>
+          <td>  2   </td>
+          <td>  2   </td>
+          <td style="background-color:    green ; color: white;">  7.16  </td>
+          <td><button class="btn btn-outline-primary btn-sm">   สุขภาพจิต   </button></td>
+        </tr>
+
+        <tr>
+          <td>  12 </td>
+          <td style="text-align: left;">   ผู้ป่วยโรคจิตเวชและสารเสพติดที่มีความเสี่ยงสูงต่อการก่อความรุนแรง (SMI-V) ในเขตสุขภาพได้รับการดูแลต่อเนื่องจนไม่กลับมาก่อความรุนแรงซ้ำ  </td>
+          <td>   >=85  </td>
+          <td>   man   </td>
+          <td>  9   </td>
+          <td>  9   </td>
+          <td style="background-color:    green ; color: white;">  100  </td>
+          <td><button class="btn btn-outline-primary btn-sm">   สุขภาพจิต   </button></td>
+        </tr>
+
+         <tr>
+          <td>  13 </td>
+          <td style="text-align: left;">  อัตราตายผู้ป่วยติดเชื้อในกระแสเลือดแบบรุนแรงชนิด community-acquired  </td>
+          <td>   <26>  </td>
+          <td>   HDC   </td>
+          <td>  0  </td>
+          <td>  0   </td>
+          <td style="background-color:    green ; color: white;">  0  </td>
+          <td><button class="btn btn-outline-primary btn-sm">   ฝ่ายการ   </button></td>
+        </tr>
+
+        <tr>
+          <td>  14 </td>
+          <td style="text-align: left;">  อัตราตายของผู้ป่วยโรคกล้ามเนื้อหัวใจตายเฉียบพลันชนิด STEMI  </td>
+          <td>   <9  </td>
+          <td>   HDC   </td>
+          <td>  2  </td>
+          <td>  0   </td>
+          <td style="background-color:    green ; color: white;">  0  </td>
+          <td><button class="btn btn-outline-primary btn-sm">   ฝ่ายการ   </button></td>
+        </tr>
+
+        <tr>
+          <td>  15 </td>
+          <td style="text-align: left;">  ร้อยละของการให้การรักษาผู้ป่วย STEMI ได้ตามมาตรฐานเวลาที่กำหนด (≥ ร้อยละ 70)  </td>
+          <td>   >=70 </td>
+          <td>   man   </td>
+          <td>  4  </td>
+          <td>  4  </td>
+          <td style="background-color:    green ; color: white;">  100  </td>
+          <td><button class="btn btn-outline-primary btn-sm">   ฝ่ายการ   </button></td>
+        </tr>
+
+         <tr>
+          <td>  16  </td>
+          <td style="text-align: left;">  ร้อยละของผู้ป่วย STEMI ที่ได้รับยาละลายลิ่มเลือดได้ตามมาตรฐานเวลาที่กำหนด  </td>
+          <td>   >=70 </td>
+          <td>   man   </td>
+          <td>  4  </td>
+          <td>  4  </td>
+          <td style="background-color:    green ; color: white;">  100  </td>
+          <td><button class="btn btn-outline-primary btn-sm">   ฝ่ายการ   </button></td>
+        </tr>
+
+        <tr>
+          <td>  17  </td>
+          <td style="text-align: left;">  ร้อยละของผู้ป่วย STEMI ที่ได้รับการทำ Primary PCI ได้ตามมาตรฐานเวลาที่กำหนด  </td>
+          <td>   >=70 </td>
+          <td>   man   </td>
+          <td>  4  </td>
+          <td>  4  </td>
+          <td style="background-color:    green ; color: white;">  100  </td>
+          <td><button class="btn btn-outline-primary btn-sm">   ฝ่ายการ   </button></td>
+        </tr>
+
+         <tr>
+          <td>  18  </td>
+          <td style="text-align: left;">  อัตราตายของผู้ป่วยโรคกล้ามเนื้อหัวใจตายเฉียบพลันชนิด STEMI ภายใน 30 วัน นับจากผู้ป่วยได้รับการวินิจฉัย STEMI  </td>
+          <td>   <10> </td>
+          <td>   man   </td>
+          <td>  4  </td>
+          <td>  0  </td>
+          <td style="background-color:    green ; color: white;">  0  </td>
+          <td><button class="btn btn-outline-primary btn-sm">   ฝ่ายการ   </button></td>
+        </tr>
+
+        <tr>
+          <td>  19  </td>
+          <td style="text-align: left;">  ร้อยละผู้ป่วยไตเรื้อรัง stage 5 รายใหม่ ลดลงน้อยกว่าร้อยละ 10 จากปีงบประมาณก่อนMI  </td>
+          <td>   <10> </td>
+          <td>   HDC   </td>
+          <td>  2  </td>
+          <td>  0  </td>
+          <td style="background-color:    green ; color: white;">  100  </td>
+          <td><button class="btn btn-outline-primary btn-sm">   ฝ่ายการ   </button></td>
+        </tr>
+
+         <tr>
+          <td>  20  </td>
+          <td style="text-align: left;">   ร้อยละของผู้ที่ได้รับการคัดกรองมะเร็งปากมดลูก  </td>
+          <td>  >=25     </td>
+          <td>   HDC   </td>
+          <td>  1064  </td>
+          <td>  177  </td>
+          <td style="background-color:    green ; color: white;">  16.64  </td>
+          <td><button class="btn btn-outline-primary btn-sm">   ปฐมภูมิ   </button></td>
+        </tr>
+    
+        <tr>
+          <td>  21  </td>
+          <td style="text-align: left;">   ร้อยละของผู้ที่มีผลผิดปกติ(มะเร็งปากมดลูก)ได้รับการส่องกล้อง Colposcopy  </td>
+          <td>  >=50     </td>
+          <td>   man   </td>
+          <td>  17  </td>
+          <td>  13  </td>
+          <td style="background-color:    green ; color: white;">  76.47  </td>
+          <td><button class="btn btn-outline-primary btn-sm">   ปฐมภูมิ   </button></td>
+        </tr>
+
+         <tr>
+          <td>  22  </td>
+          <td style="text-align: left;">  ร้อยละของผู้ป่วยที่ได้รับการคัดกรองมะเร็งลำไส้ใหญ่และไส้ตรง  </td>
+          <td>  >=50     </td>
+          <td>   HDC   </td>
+          <td>  0  </td>
+          <td>  0  </td>
+          <td style="background-color:    rgb(209, 10, 20) ; color: white;">  0  </td>
+          <td><button class="btn btn-outline-primary btn-sm">   ปฐมภูมิ   </button></td>
+        </tr>
+
+        <tr>
+          <td>  23  </td>
+          <td style="text-align: left;"> ร้อยละของผู้ที่มีผลผิดปกติ (มะเร็งลำไส้ใหญ่และไส้ผิดปกติ) ได้รับการส่องกล้อง Colonoscopy  </td>
+          <td>  >=50     </td>
+          <td>   HDC   </td>
+          <td>  0  </td>
+          <td>  0  </td>
+          <td style="background-color:    rgb(209, 10, 20) ; color: white;">  0  </td>
+          <td><button class="btn btn-outline-primary btn-sm">   ปฐมภูมิ   </button></td>
+        </tr>
+
+        <tr>
+          <td>  24  </td>
+          <td style="text-align: left;"> ร้อยละของผู้ป่วยยาเสพติดที่เข้าสู่กระบวนการบำบัดรักษา ได้รับการดูแลอย่างมีคุณภาพอย่างต่อเนื่องจนถึงการติดตาม (Retention Rate)  </td>
+          <td>  >70     </td>
+          <td>   man   </td>
+          <td>  7  </td>
+          <td>  7  </td>
+          <td style="background-color:    rgb(209, 10, 20) ; color: white;">  100  </td>
+          <td><button class="btn btn-outline-primary btn-sm">   สุขภาพจิต   </button></td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+
+  <div class="text-end mt-3">
+    <a href="Untitled-1.html" class="btn btn-orange">หน้าหลัก</a>
+  </div>
+</div>
+
+</body>
+</html>
